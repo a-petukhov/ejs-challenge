@@ -46,6 +46,7 @@ app.get('/compose', (req, res) => {
 
 app.post('/compose', (req, res) => {
   const post = {
+    name: req.body.postTitle.toLowerCase().replace(/[^a-z0-9 _-]+/gi, '-').replace(/\s/g , "-"),
     title: req.body.postTitle,
     body: req.body.postBody,
   }
@@ -53,7 +54,12 @@ app.post('/compose', (req, res) => {
   res.redirect('/');
 });
 
-
+app.get('/post/:postNameID', (req, res) => {
+    res.render('post', {
+      posts,
+      postNameID: req.params.postNameID
+    });
+});
 
 
 
