@@ -128,3 +128,6 @@ dist
 
 #MacOS files & other
 .DS_Store
+
+#VS Code & Git files
+GitHub.code-workspace
