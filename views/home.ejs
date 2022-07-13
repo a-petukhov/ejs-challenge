@@ -5,8 +5,10 @@
             </div>
         <% posts.forEach(post => { %>
             <div class="post_holder">
-                <h1 class="post_title"><a href="/post/<%= post.name %>"><%= post.title %></a></h1>
-                <p class ="post_body"><%= post.body.substring(0, 100) + ' ...'; %></p>
+                <h1 class="post_title"><%= post.title %></h1>
+                <p class ="post_body"><%= post.body.substring(0, 100) + ' ...'; %>
+                    <a href="/post/<%= post.name %>">Read More</a>
+                </p>
             </div>
         <% }); %> 
 <%- include('partials/footer') %>
