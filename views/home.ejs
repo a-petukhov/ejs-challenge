@@ -1,5 +1,4 @@
 <%- include('partials/header') %>
-        
             <div class="post_holder">
                 <h1 class="post_title">Home</h1>
                 <p class ="post_body"><%= content.home %></p>
@@ -7,7 +6,7 @@
         <% posts.forEach(post => { %>
             <div class="post_holder">
                 <h1 class="post_title"><a href="/post/<%= post.name %>"><%= post.title %></a></h1>
-                <p class ="post_body"><%= post.body %></p>
+                <p class ="post_body"><%= post.body.substring(0, 100) + ' ...'; %></p>
             </div>
-<% }); %> 
+        <% }); %> 
 <%- include('partials/footer') %>
