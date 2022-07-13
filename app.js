@@ -55,10 +55,19 @@ app.post('/compose', (req, res) => {
 });
 
 app.get('/post/:postNameID', (req, res) => {
-    res.render('post', {
-      posts,
-      postNameID: req.params.postNameID
-    });
+  const requestedParam = req.params.postNameID;
+
+  posts.forEach(post => {
+    let exists = Object.values(post).includes(requestedParam);
+    if (exists === true) {
+      res.render('post', {
+        title: post.title,
+        body: post.body
+      });
+    } else {
+      res.redirect('/');
+    }
+  });
 });
 
 

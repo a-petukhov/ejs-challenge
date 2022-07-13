@@ -1,10 +1,6 @@
 <%- include('partials/header') %>
-<% posts.forEach(post => { %>
-<%    if (post.name === postNameID) { %>
       <div class="post_holder">
-        <h1 class="post_title"><%= post.title %></h1>
-        <p class ="post_body"><%= post.body %></p>
+        <h1 class="post_title"><%= title %></h1>
+        <p class ="post_body"><%= body %></p>
       </div>
-<%    } %>
-<%  }); %>
 <%- include('partials/footer') %>
