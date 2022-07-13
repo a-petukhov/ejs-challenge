@@ -46,7 +46,7 @@ app.get('/compose', (req, res) => {
 
 app.post('/compose', (req, res) => {
   const post = {
-    name: req.body.postTitle.toLowerCase().replace(/[^a-z0-9 _-]+/gi, '-').replace(/\s/g , "-"),
+    name: req.body.postTitle.toLowerCase().replace(/[^a-z0-9 _-]+/gi, '-').replace(/\s/g , '_'),
     title: req.body.postTitle,
     body: req.body.postBody,
   }
