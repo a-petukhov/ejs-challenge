@@ -10,6 +10,7 @@
                     <p class ="post_body"><%= post.body.substring(0, 100) + ' ...'; %>
                         <a href="/post/<%= post.route %>">Read More</a>
                     </p>
+                    <span style="font-style: italic;" class="post_date"><%= post.dateAdded %></span>
                 </div>
             <% }); %>
          

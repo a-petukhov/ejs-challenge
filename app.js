@@ -23,7 +23,7 @@ const postSchema = new mongoose.Schema({
   route: String,
   title: String,
   body: String,
-  dateAdded: Date
+  dateAdded: String
 });
 const Post = new mongoose.model('Post', postSchema);
 
@@ -144,8 +144,7 @@ app.get('/post/:postNameID', (req, res) => {
         title: result.title,
         body: result.body,
         dateAdded: result.dateAdded
-      });
-    }
+    });}
   });
 });
 
