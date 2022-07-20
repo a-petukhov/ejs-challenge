@@ -1,14 +1,16 @@
 <%- include('partials/header') %>
             <div class="post_holder">
                 <h1 class="post_title">Home</h1>
-                <p class ="post_body"><%= defaultContent.home %></p>
+                <p class ="post_body"><%= defaultContent %></p>
             </div>
-        <% posts.forEach(post => { %>
-            <div class="post_holder">
-                <h1 class="post_title"><%= post.title %></h1>
-                <p class ="post_body"><%= post.body.substring(0, 100) + ' ...'; %>
-                    <a href="/post/<%= post.name %>">Read More</a>
-                </p>
-            </div>
-        <% }); %> 
+
+            <% posts.forEach(post => { %>
+                <div class="post_holder">
+                    <h1 class="post_title"><%= post.title %></h1>
+                    <p class ="post_body"><%= post.body.substring(0, 100) + ' ...'; %>
+                        <a href="/post/<%= post.route %>">Read More</a>
+                    </p>
+                </div>
+            <% }); %>
+         
 <%- include('partials/footer') %>
