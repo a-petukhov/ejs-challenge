@@ -20,7 +20,6 @@ app.use(express.static('public'));
 mongoose.connect('mongodb+srv://huge-orange-master:3cWvoZjQRbsVEZFqUq@cluster0.arlckwg.mongodb.net/blogwebsiteDB?retryWrites=true&w=majority');
 
 const postSchema = new mongoose.Schema({
-  route: String,
   title: String,
   body: String,
   dateAdded: String
@@ -122,7 +121,6 @@ app.get('/compose', (req, res) => {
 app.post('/compose', (req, res) => {
 
   const newPost = new Post({
-    route: req.body.postTitle.toLowerCase().replace(/[^a-z0-9 _-]+/gi, '-').replace(/\s/g, '_'),
     title: req.body.postTitle,
     body: req.body.postBody,
     dateAdded: dateNow
@@ -136,11 +134,11 @@ app.post('/compose', (req, res) => {
   });
 });
 
-app.get('/post/:postNameID', (req, res) => {
-  const requestedPost = req.params.postNameID;
+app.get('/post/:postID', (req, res) => {
+  const requestedPost = req.params.postID;
 
   Post.findOne({
-    route: requestedPost
+    _id: requestedPost
   }, (err, result) => {
     if (err) {
       console.log(err);
