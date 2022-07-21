@@ -127,8 +127,13 @@ app.post('/compose', (req, res) => {
     body: req.body.postBody,
     dateAdded: dateNow
   });
-  newPost.save();
-  res.redirect('/');
+  newPost.save((err) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.redirect('/');
+    }
+  });
 });
 
 app.get('/post/:postNameID', (req, res) => {
@@ -144,7 +149,8 @@ app.get('/post/:postNameID', (req, res) => {
         title: result.title,
         body: result.body,
         dateAdded: result.dateAdded
-    });}
+      });
+    }
   });
 });
 
